@@ -98,6 +98,7 @@ const Home = () => {
     return (
          //className="bg-amber-300 w-full flex flex-col space-y-2 pt-2 pb-4" 
         <div id="homebody">
+            <div >
         <div class= "home">
             {/*{localStorage.getItem('loaded') === 'true'? <Quiz/>:null}*/}
             <h2 >{"Welcome to Quizzery"}</h2>
@@ -111,7 +112,8 @@ const Home = () => {
                 </button>
                 </div>
                 </div>
-            {noData && <p >You have not made any quiz</p>}
+                <div id="noquiz">
+            {noData && <p >You have not made any quiz</p>}</div>
             {data && data.map((item, index) => {
                 return (
                     <div class="getQuiz"
@@ -121,7 +123,7 @@ const Home = () => {
                         <hr />
                         <p><b>Topic :</b> {item.id}</p>
                         <span><b>Share Code :</b><span >( Click below to Copy! ) <span id={'msg'+index.toString()} ></span></span></span>
-                        <span onClick={(e)=>copy2clip(e,index)} >{localStorage.getItem('uid')+"//"+item.id}</span>
+                        <span id="copyText" onClick={(e)=>copy2clip(e,index)} >{localStorage.getItem('uid')+"//"+item.id}</span>
 
                         <button
                             key={'button quiz'+index.toString()}
@@ -134,6 +136,7 @@ const Home = () => {
                 )
             })}
 
+        </div>
         </div>
     );
 };

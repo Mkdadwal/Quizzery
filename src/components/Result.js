@@ -2,7 +2,7 @@ import React from 'react';
 
 const Result = () => {
     return (
-        <div>
+        <div id="scroreOuterBox">
             Score :
             {localStorage.getItem('score')}
         </div>

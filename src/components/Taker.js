@@ -41,6 +41,7 @@ const Taker = () => {
     }
     return (
         <div class='takeDiv'>
+            <div>
             <div class='innerDiv'>
               <h1>Enter the Quiz code Provided</h1>
               <div id="input">
@@ -49,11 +50,12 @@ const Taker = () => {
             <div id="input">
             <button class='takeBtn' onClick={getQuiz}>Let's Start</button>
             </div> 
-            {warn && <p>Wrong Code Entered</p>}
+            </div>
+            <div id="wrongCode">
+            {warn && <p>Wrong Code Entered</p>}</div>
             {enable && <p>Entering Quiz: {enable}</p>}
             </div>
         </div>
     );
 };
-
 export default Taker;

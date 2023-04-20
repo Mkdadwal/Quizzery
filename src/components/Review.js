@@ -26,15 +26,20 @@ const Review = () => {
     }
 
     return (
-        <div>
-            <span>Topic : {localStorage.getItem('Quiz_topic')}</span>
+        <div id = "outerDiv">
+            <div>
+            <div id="topic">
+            <span >Topic : {localStorage.getItem('Quiz_topic')}</span></div>
+            <div id="innerDiv">
+            
             {data.map((item, index) => {
                 return (
-                    <div key={'ques-div'+index.toString()}>
-                        Q{index+1}. {item.value}
+                    <div  key={'ques-div'+index.toString()}>
+                        <div id="quess">
+                        Q{index+1}. {item.value}</div>
                         <div key={'ans-div'+index.toString()}>
                             {item.choices.map((choice, index2) => {
-                                return (<span key={'span'+index.toString()+index2.toString()}>{index2+1}. {choice}</span>)
+                                return (<span key={'span'+index.toString()+index2.toString()}>{index2+1}. {choice}<br></br></span>)
                             })}
                             {item.correctAnswer}
                         </div>
@@ -42,10 +47,13 @@ const Review = () => {
                     </div>
                 )
             })}
-            <button onClick={()=>navigate('/Maker')} disabled={saved}>Back to Change</button>
-            <button onClick={()=>{handleSave()}} disabled={false}> Save Quiz</button>
-            {saved && <div>Quiz Saved</div>}
-
+            </div>
+            <div id="Savebtn">
+            <button id="back"onClick={()=>navigate('/Maker')} disabled={saved}>Back to Change</button>
+            <button id="save" onClick={()=>{handleSave()}} disabled={false}> Save Quiz</button>
+            {saved && <div id="saved">Quiz Saved</div>}
+            </div>
+            </div>
         </div>
     );
 };

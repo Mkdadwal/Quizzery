@@ -54,26 +54,31 @@ const Quiz = () => {
     const frame = (
         <div className='app'>
 			{showScore ? (
-				<div className='score-section'>
+				<div id="scroreOuterBox">
+                    <div id="innereScoreBox">
 					You scored {score} out of {questions.length}
+                    </div>
 				</div>
 			) : (
 				<>
 
                 <div class="quizBody">
+                    <div id="boxGradient">
 					<div  class="quizInnerBody">
                     <div id="ques">
 					<span>Question {index + 1}</span>/{questions.length}
 				</div>
-						<div   class="innerBody">{questions[index].value}</div>
-					
-					<div class="makeCenter">
+                <div   class="innerBody">
+                    <div class="makeCenter">{questions[index].value}</div> 
+					<div id ="center">
 						{questions[index].choices.map((answerOption) => (
 							<button class="optionsSection" onClick={() => handleNext(answerOption)}>{answerOption}</button>
 						))}
-					</div>
                     </div>
-                </div>
+				</div>
+            </div>
+        </div>
+    </div>
 				</>
 			)}
 		</div>
